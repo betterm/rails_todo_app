@@ -1,1 +1,1 @@
-This is Rails Todo application.
+Rails Todo application.
