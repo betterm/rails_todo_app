@@ -1,6 +1,8 @@
-<h1>Editing Todo List</h1>
+<h1 class="todo_list_title">Eidt Todo List</h1>
+<div class="forms">
+  <%= render 'form' %>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @todo_list %> |
-<%= link_to 'Back', todo_lists_path %>
+<div class="links">
+  <%= link_to 'Cancel', root_path %>
+</div>
