@@ -7,21 +7,24 @@
   <%= csrf_meta_tags %>
   <link href='//fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <div class="links"  style="float: right; font-size: 20px; margin-right: 15%;">
+
+</head>
+<body>
+<div class="container">
+  <div class="links"  style="font-size: 30px; margin: 0; text-align: center; text-transform: uppercase; font-weight: 700; ">
     <% if signed_in? %>
       <%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
     <% else %>
       <%= link_to "Sign in", user_session_path %>
     <% end %>
   </div>
-</head>
-<body>
+</div>
 
 <div class="container">
   <%= yield %>
 </div>
 
-<h2 class="notice" style="color:dodgerblue; text-align: center"><%= notice %></h2>
+<h2 class="notice" style="color:#1F7972; text-align: center"><%= notice %></h2>
 <h3 class="alert" style="color:indianred; text-align: center;"><%= alert %></h3>
 
 
