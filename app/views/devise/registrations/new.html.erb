@@ -1,7 +1,7 @@
 <h2>Sign up</h2>
 <div class="links">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+    <h2 style="color: indianred; text-align: center; text-decoration: none; list-style-type: none;"><%= devise_error_messages! %></h2>
 
     <div class="field">
       <%= f.label :email %><br />
