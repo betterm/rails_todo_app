@@ -27,6 +27,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'multipart-post', '~> 2.0'
 gem 'unicorn'
 gem 'rack-timeout'
 gem 'rails_12factor', group: :production

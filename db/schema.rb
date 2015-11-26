@@ -11,7 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125213946) do
+ActiveRecord::Schema.define(version: 20151126215941) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.float    "price"
+    t.string   "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "category"
+    t.string   "a_day_of_week"
+  end
+
+  create_table "items_orders", id: false, force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "order_id"
+  end
+
+  add_index "items_orders", ["item_id"], name: "index_items_orders_on_item_id", using: :btree
+  add_index "items_orders", ["order_id"], name: "index_items_orders_on_order_id", using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "first_course"
+    t.string   "main_course"
+    t.string   "drink"
+    t.string   "a_day_of_week"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "todo_items", force: :cascade do |t|
     t.string   "content"
@@ -21,7 +59,7 @@ ActiveRecord::Schema.define(version: 20151125213946) do
     t.datetime "completed_at"
   end
 
-  add_index "todo_items", ["todo_list_id"], name: "index_todo_items_on_todo_list_id"
+  add_index "todo_items", ["todo_list_id"], name: "index_todo_items_on_todo_list_id", using: :btree
 
   create_table "todo_lists", force: :cascade do |t|
     t.string   "title"
@@ -31,7 +69,7 @@ ActiveRecord::Schema.define(version: 20151125213946) do
     t.integer  "user_id"
   end
 
-  add_index "todo_lists", ["user_id"], name: "index_todo_lists_on_user_id"
+  add_index "todo_lists", ["user_id"], name: "index_todo_lists_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -46,9 +84,11 @@ ActiveRecord::Schema.define(version: 20151125213946) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "provider"
+    t.string   "uid"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
