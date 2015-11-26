@@ -24,6 +24,8 @@ html {
   height: 100%;
 }
 
+
+
 body {
   height: 100%;
   background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
@@ -183,7 +185,7 @@ label {
 }
 input[type="text"], textarea {
   width: 100%;
-  margin: .5em 2% 1em 0;
+  margin: .5em 2% 1em 1px;
   display: inline-block;
   outline: none;
   background: rgba(250,250,250,.4);
@@ -195,6 +197,18 @@ input[type="text"], textarea {
 textarea {
   height: 200px;
 }
+input[type="email"],input[type="password"] {
+  width: 90%;
+  margin: 1em;
+  display: inline-block;
+  outline: none;
+  background: rgba(250,250,250,.4);
+  border: none;
+  height: 40px;
+  border-radius: 4px;
+  padding: 1em 2em;
+}
+
 input[type="submit"] {
   background: white;
   outline: none;
@@ -211,4 +225,10 @@ input[type="submit"] {
     color: white;
   }
 }
+
+h2 {
+  color:white;
+  text-align: center;
+}
 ::-webkit-input-placeholder { color: $dark; }
+
